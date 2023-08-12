@@ -1,6 +1,6 @@
 {
   "name": "ecommerse-server",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "ecommerce server",
   "main": "src/main.js]",
   "repository": "https://github.com/xfxpositions/ecommerce-server",
