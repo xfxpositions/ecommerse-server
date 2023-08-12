@@ -9,7 +9,7 @@ console.log(logsFolder);
 const logger = winston.createLogger({
   level: "info",
   format: format.combine(
-    format.colorize(),
+    format.colorize(), // optional
     format.timestamp({
       format: () => moment().tz("Etc/GMT-3").format("DD-MM-YYYY HH:mm:ss.SSS"), // Zaman damgasını özelleştiriyoruz
     }),

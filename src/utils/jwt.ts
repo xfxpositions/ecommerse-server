@@ -3,6 +3,7 @@ import fs from "fs";
 import path from "path";
 import "dotenv/config";
 import logger from "../logger";
+import IJwt from "../types/jwtClaim";
 
 const privateKeyPath: string = path.join(
   __dirname,
@@ -24,6 +25,8 @@ const publicKeyPath: string = path.join(
 | -> public.key
 */
 
+const alg = "RS256"; // algorithm, see others in jwt.io
+
 async function generateRsaKeys() {
   /*define options (optional)
     crv?: string;
@@ -34,7 +37,6 @@ async function generateRsaKeys() {
     modulusLength: 4096, //set length to 4096, min len is 2048
   };
 
-  const alg = "RS256"; // algorithm, see others in jwt.io
   const { publicKey, privateKey } = await jose.generateKeyPair(alg, options); //declare public and private key
 
   const pkcs8PemPrivate = await jose.exportPKCS8(privateKey); //toString for privateKey
@@ -50,7 +52,7 @@ function writeRsaKeys(privateKey: string, publicKey: string) {
     fs.writeFileSync(publicKeyPath, publicKey);
     // file written successfully
     logger.info(
-      `private and public keys written to ${publicKeyPath} and ${privateKeyPath} paths`
+      `private and public keys written to ${publicKeyPath} ${privateKeyPath} paths`
     );
   } catch (err) {
     logger.error(
@@ -69,4 +71,46 @@ async function checkRsaKeys() {
   }
 }
 
-export default { checkRsaKeys };
+async function readKeys() {
+  try {
+    const privateKeyText = fs.readFileSync(privateKeyPath).toString(); //read raw text
+    const publicKeyText = fs.readFileSync(publicKeyPath).toString(); //read raw text
+
+    const privateKey = await jose.importPKCS8(privateKeyText, alg); //import private key from taw text
+    const publicKey = await jose.importSPKI(publicKeyText, alg); //import public key from raw text
+
+    return { privateKey: privateKey, publicKey: publicKey };
+  } catch (err) {
+    logger.error(
+      "some error occured while reading rsa keys in readKeys function",
+      err
+    );
+  }
+}
+
+async function signJwtKey(claims: IJwt) {
+  const { privateKey, publicKey } = await readKeys();
+  const expireTime = process.env.JWT_EXPIRE_TIME || "30m";
+
+  let claimsString = JSON.parse(JSON.stringify(claims)); //turning claims object into string without quotes
+
+  const jwt = await new jose.SignJWT({ sub: claimsString })
+    .setProtectedHeader({ alg }) //set algorithm
+    .setIssuedAt(Date.now()) // issued at right now
+    .setIssuer("system:authentication_service") // issuer is currently system
+    .setAudience("system:customers") // idk what is that
+    .setExpirationTime("2h")
+    .sign(privateKey);
+
+  return jwt;
+}
+
+async function verifyJwt(token: string): Promise<jose.JWTVerifyResult> {
+  const { privateKey, publicKey } = await readKeys();
+  const result = await jose.jwtVerify(token, publicKey).catch((err) => {
+    throw err;
+  });
+  return result;
+}
+
+export default { checkRsaKeys, signJwtKey, verifyJwt };
