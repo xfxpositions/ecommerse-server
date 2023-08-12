@@ -1,0 +1,8 @@
+{
+  "compilerOptions": {
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    // ... rest
+    "typeRoots": ["./node_modules/@types", "./src/types"]
+  }
+}
