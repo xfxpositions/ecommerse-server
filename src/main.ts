@@ -6,11 +6,13 @@ import bodyParser from "koa-bodyparser";
 import db_connect from "./db/connect";
 import logger from "./logger/";
 import jwtUtil from "./utils/jwt";
+import middlewares from "./middlewares";
 
 const port = process.env.PORT || 8080;
 
 const app = new koa();
 
+//use bodyparser
 app.use(bodyParser());
 
 //declare router
@@ -24,30 +26,21 @@ function home(ctx, next) {
   next();
 }
 
-const router2 = new koa_router();
-router2.get("/deneme", (ctx) => {
-  console.log("ok");
-  ctx.body = "hecalisiyor";
-});
+//middlewares
+app.use(middlewares.logger);
+//app.use(middlewares.auth);
 
 router.get("/", home);
 
-router.get("/bodytest", (ctx) => {
-  const body = ctx.request?.body;
-  console.log(body);
-  ctx.status = 200;
-  ctx.body = "ok";
-});
-
 //use router *important
-// app.use(router.routes());
 app.use(routes.home_router.routes());
-app.use(router2.routes());
+app.use(routes.auth_login.routes());
 
 //connect db
 db_connect();
 
-//jwtUtil.writeRsaKeys();
+//check if rsa keys created
+jwtUtil.checkRsaKeys();
 
 //listen
 app.listen(port, () => {

@@ -1,3 +1,7 @@
 node_modules/
+logs/
 .env
 yarn-error.lock
+private.key
+public.cer
+src/logs/
