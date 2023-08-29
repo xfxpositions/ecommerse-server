@@ -4,4 +4,4 @@ logs/
 yarn-error.lock
 private.key
 public.cer
-src/logs
+src/logs/

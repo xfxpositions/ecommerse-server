@@ -1,4 +1,8 @@
-interface ICustomer {
+import Roles from "./roles";
+import { Document } from "mongoose";
+
+interface IUser extends Document {
+  role: Roles;
   id: string;
   username: string;
   name: string;
@@ -13,9 +17,11 @@ interface ICustomer {
   };
 }
 
-class Customer {
-  value: ICustomer;
-  constructor(customer: ICustomer) {
-    this.value = customer;
-  }
-}
+// class Customer {
+//   value: ICustomer;
+//   constructor(customer: ICustomer) {
+//     this.value = customer;
+//   }
+// }
+
+export default IUser;

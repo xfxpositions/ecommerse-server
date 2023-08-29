@@ -186,6 +186,11 @@
   resolved "https://registry.yarnpkg.com/@types/triple-beam/-/triple-beam-1.3.2.tgz#38ecb64f01aa0d02b7c8f4222d7c38af6316fef8"
   integrity sha512-txGIh+0eDFzKGC25zORnswy+br1Ha7hj5cMVwKIU7+s0U2AxxJru/jZSMU6OC9MJWP6+pc/hc6ZjyZShpsyY2g==
 
+"@types/validator@^13.11.1":
+  version "13.11.1"
+  resolved "https://registry.yarnpkg.com/@types/validator/-/validator-13.11.1.tgz#6560af76ed54490e68c42f717ab4e742ba7be74b"
+  integrity sha512-d/MUkJYdOeKycmm75Arql4M5+UuXmf4cHdHKsyw1GcvnNgL6s77UkgSgJ8TE/rI5PYsnwYq5jkcWBLuN/MpQ1A==
+
 "@types/webidl-conversions@*":
   version "7.0.0"
   resolved "https://registry.yarnpkg.com/@types/webidl-conversions/-/webidl-conversions-7.0.0.tgz#2b8e60e33906459219aa587e9d1a612ae994cfe7"
@@ -746,6 +751,16 @@ kuler@^2.0.0:
   resolved "https://registry.yarnpkg.com/kuler/-/kuler-2.0.0.tgz#e2c570a3800388fb44407e851531c1d670b061b3"
   integrity sha512-Xq9nH7KlWZmXAtodXDDRE7vs6DU1gTU8zYDHDiWLSip45Egwq3plLHzPn27NgvzL2r1LMPC1vdqh98sQxtqj4A==
 
+lodash.foreach@^4.1.0:
+  version "4.5.0"
+  resolved "https://registry.yarnpkg.com/lodash.foreach/-/lodash.foreach-4.5.0.tgz#1a6a35eace401280c7f06dddec35165ab27e3e53"
+  integrity sha512-aEXTF4d+m05rVOAUG3z4vZZ4xVexLKZGF0lIxuHZ1Hplpk/3B6Z1+/ICICYRLm7c41Z2xiejbkCkJoTlypoXhQ==
+
+lodash.get@^4.0.2:
+  version "4.4.2"
+  resolved "https://registry.yarnpkg.com/lodash.get/-/lodash.get-4.4.2.tgz#2d177f652fa31e939b4438d5341499dfa3825e99"
+  integrity sha512-z+Uw/vLuy6gQe8cfaFWD7p0wVv8fJl3mbzXh33RS+0oW2wvUqiRXiQ69gLWSLpgB5/6sU+r6BlQR0MBILadqTQ==
+
 lodash.merge@^4.6.2:
   version "4.6.2"
   resolved "https://registry.yarnpkg.com/lodash.merge/-/lodash.merge-4.6.2.tgz#558aa53b43b661e1925a0afdfa36a9a1085fe57a"
@@ -839,6 +854,15 @@ mongodb@5.7.0:
     socks "^2.7.1"
   optionalDependencies:
     saslprep "^1.0.3"
+
+mongoose-unique-validator@^4.0.0:
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/mongoose-unique-validator/-/mongoose-unique-validator-4.0.0.tgz#b9310fa6b67482f4daccc2807af1bd68e6e91d4d"
+  integrity sha512-lOvL7wOZ8wM2Kggk6zPZuglmld7hmzf6TdNk/h9EidTH9iZNLl3Y2ZgRPjYd/so1AODLawehY56roa6HjX6jew==
+  dependencies:
+    lodash.foreach "^4.1.0"
+    lodash.get "^4.0.2"
+    lodash.merge "^4.6.2"
 
 mongoose@*, mongoose@^7.4.2:
   version "7.4.2"
@@ -937,6 +961,11 @@ parseurl@^1.3.2:
   resolved "https://registry.yarnpkg.com/parseurl/-/parseurl-1.3.3.tgz#9da19e7bee8d12dff0513ed5b76957793bc2e8d4"
   integrity sha512-CiyeOxFT/JZyN5m0z9PfXw4SCBJ6Sygz1Dpl0wqjlhDEGGBP1GnsUVEL0p63hoG1fcj3fHynXi9NYO4nWOL+qQ==
 
+password-validator@^5.3.0:
+  version "5.3.0"
+  resolved "https://registry.yarnpkg.com/password-validator/-/password-validator-5.3.0.tgz#472b89997c71c185eb22b7917b225726b4d64577"
+  integrity sha512-Q+bSEM5pjokZqzWGoQaoylkeWeH4+9uMYlVImiPD0EOJClQ2RPBhrJ5h0OjhMKtwOmu5rRcLaTZo5Gk9RBl0ig==
+
 path-to-regexp@^6.2.1:
   version "6.2.1"
   resolved "https://registry.yarnpkg.com/path-to-regexp/-/path-to-regexp-6.2.1.tgz#d54934d6798eb9e5ef14e7af7962c945906918e5"
@@ -963,6 +992,11 @@ qs@^6.5.2:
   integrity sha512-tDNIz22aBzCDxLtVH++VnTfzxlfeK5CbqohpSqpJgj1Wg/cQbStNAz3NuqCs5vV+pjBsK4x4pN9HlVh7rcYRiA==
   dependencies:
     side-channel "^1.0.4"
+
+random-js@^2.1.0:
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/random-js/-/random-js-2.1.0.tgz#0c03238b0a4f701f7a4c7303036ade3083d8ee14"
+  integrity sha512-CRUyWmnzmZBA7RZSVGq0xMqmgCyPPxbiKNLFA5ud7KenojVX2s7Gv+V7eB52beKTPGxWRnVZ7D/tCIgYJJ8vNQ==
 
 raw-body@^2.3.3:
   version "2.5.2"
@@ -1164,6 +1198,11 @@ util-deprecate@^1.0.1:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/util-deprecate/-/util-deprecate-1.0.2.tgz#450d4dc9fa70de732762fbd2d4a28981419a0ccf"
   integrity sha512-EPD5q1uXyFxJpCrLnCc1nHnq3gOa6DZBocAIiI2TaSCA7VCJ1UJDMagCzIkXNsUYfD1daK//LTEQ8xiIbrHtcw==
+
+validator@^13.11.0:
+  version "13.11.0"
+  resolved "https://registry.yarnpkg.com/validator/-/validator-13.11.0.tgz#23ab3fd59290c61248364eabf4067f04955fbb1b"
+  integrity sha512-Ii+sehpSfZy+At5nPdnyMhx78fEoPDkR2XW/zimHEL3MyGJQOCQ7WeP20jPYRz7ZCpcKLB21NxuXHF3bxjStBQ==
 
 vary@^1.1.2:
   version "1.1.2"
