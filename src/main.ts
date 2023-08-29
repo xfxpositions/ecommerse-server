@@ -28,7 +28,7 @@ function home(ctx, next) {
 
 //middlewares
 app.use(middlewares.logger);
-app.use(middlewares.auth);
+//app.use(middlewares.auth);
 
 router.get("/", home);
 
