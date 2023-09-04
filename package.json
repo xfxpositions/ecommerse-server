@@ -1,6 +1,6 @@
 {
   "name": "ecommerse-server",
-  "version": "0.2.0",
+  "version": "0.2.3",
   "description": "ecommerce server",
   "main": "src/main.js]",
   "repository": "https://github.com/xfxpositions/ecommerce-server",
@@ -14,7 +14,6 @@
     "@types/koa-router": "^7.4.4",
     "@types/mongoose": "^5.11.97",
     "@types/node": "^20.4.8",
-    "@types/stringify-object": "^4.0.2",
     "@types/winston": "^2.4.4",
     "dotenv": "^16.3.1",
     "jose": "^4.14.4",
@@ -25,7 +24,6 @@
     "moment-timezone": "^0.5.43",
     "mongoose": "^7.4.2",
     "nodemon": "^3.0.1",
-    "stringify-object": "^5.0.0",
     "winston": "^3.10.0"
   },
   "scripts": {
